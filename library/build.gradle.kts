@@ -43,7 +43,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "io.github.xfy9326"
             artifactId = "AndroidIOTools"
-            version = "SNAPSHOT"
+            version = currentGitCommitTag ?: "$gitCommitShortId-SNAPSHOT"
 
             afterEvaluate {
                 from(components["release"])
