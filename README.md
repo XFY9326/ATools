@@ -6,10 +6,10 @@ Optimising the IO programming experience on Android
 - Kotlin is recommended
 - Android SDK Version >= 19
 
-## Usage
+## Install
 Gradle
 ```kotlin
-// Method 1
+// Method 1 (build.gradle.kts)
 allprojects {
     repositories {
         // ...
@@ -17,7 +17,7 @@ allprojects {
     }
 }
 
-// Method 2
+// Method 2 (settings.gradle.kts)
 dependencyResolutionManagement {
     // ..
     repositories {
