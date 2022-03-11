@@ -8,10 +8,9 @@ import android.util.TypedValue
 import io.github.xfy9326.aio.AIOManager
 import io.github.xfy9326.aio.file.AssetFile
 import io.github.xfy9326.aio.file.RawResFile
-import okio.Sink
 import okio.Source
-import okio.sink
 import okio.source
+import java.io.IOException
 
 fun AssetFile.source(accessMode: Int = AssetManager.ACCESS_STREAMING): Source =
     open(accessMode).source()
@@ -22,5 +21,5 @@ fun RawResFile.source(): Source =
 fun RawResFile.source(typedValue: TypedValue): Source =
     open(typedValue).source()
 
-fun Uri.source(): Source? =
-    AIOManager.contentResolver.openInputStream(this)?.source()
+fun Uri.source(): Source =
+    AIOManager.contentResolver.openInputStream(this)?.source() ?: throw IOException("$this: Uri source open failed.")
