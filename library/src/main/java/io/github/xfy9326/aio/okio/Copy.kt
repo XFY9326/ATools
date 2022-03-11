@@ -6,7 +6,9 @@ import android.net.Uri
 import io.github.xfy9326.aio.utils.prepareParentFolder
 import okio.*
 import java.io.File
+import java.io.IOException
 
+@Throws(IOException::class)
 fun Source.copyTo(sink: Sink, closeAll: Boolean = true): Long {
     return if (closeAll) {
         use { input ->
@@ -19,6 +21,7 @@ fun Source.copyTo(sink: Sink, closeAll: Boolean = true): Long {
     }
 }
 
+@Throws(IOException::class)
 fun File.copyTo(uri: Uri, append: Boolean = false): Long {
     if (!this.exists())
         throw NoSuchFileException(file = this, reason = "The source file doesn't exist.")
@@ -28,6 +31,7 @@ fun File.copyTo(uri: Uri, append: Boolean = false): Long {
     return source().copyTo(uri.sink(if (append) "wa" else "w"))
 }
 
+@Throws(IOException::class)
 fun Uri.copyTo(target: File, overwrite: Boolean = false, append: Boolean = false): Long {
     if (target.exists()) {
         if (!overwrite)
@@ -43,6 +47,7 @@ fun Uri.copyTo(target: File, overwrite: Boolean = false, append: Boolean = false
     }
 }
 
+@Throws(IOException::class)
 fun Uri.copyTo(uri: Uri, append: Boolean = false): Long {
     if (this == uri) return 0
     return source().copyTo(uri.sink(if (append) "wa" else "w"))

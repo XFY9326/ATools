@@ -8,6 +8,7 @@ import okio.Sink
 import okio.sink
 import java.io.IOException
 
+@Throws(IOException::class)
 fun Uri.sink(mode: String? = null): Sink =
     AIOManager.contentResolver.let {
         if (mode == null) {
