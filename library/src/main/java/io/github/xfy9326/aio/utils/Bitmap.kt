@@ -25,3 +25,32 @@ fun Bitmap.tryRecycle() {
         // Ignore
     }
 }
+
+object ImageMimeType {
+    const val IMAGE = "image/*"
+    const val PNG = "image/png"
+    const val WEBP = "image/webp"
+    const val JPEG = "image/jpeg"
+}
+
+fun Bitmap.CompressFormat.getMimeType(): String =
+    when {
+        this == Bitmap.CompressFormat.JPEG -> ImageMimeType.JPEG
+        this == Bitmap.CompressFormat.PNG -> ImageMimeType.PNG
+        this.isWEBP() -> ImageMimeType.WEBP
+        else -> ImageMimeType.IMAGE
+    }
+
+object ImageFileExtension {
+    const val PNG = "png"
+    const val WEBP = "webp"
+    const val JPEG = "jpeg"
+}
+
+fun Bitmap.CompressFormat.newFileName(fileName: String): String =
+    when {
+        this == Bitmap.CompressFormat.JPEG -> "$fileName.${ImageFileExtension.JPEG}"
+        this == Bitmap.CompressFormat.PNG -> "$fileName.${ImageFileExtension.PNG}"
+        this.isWEBP() -> "$fileName.${ImageFileExtension.WEBP}"
+        else -> error("Unknown Bitmap.CompressFormat: $name")
+    }
