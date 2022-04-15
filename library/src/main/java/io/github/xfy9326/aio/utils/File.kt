@@ -34,6 +34,14 @@ fun File.takeIfIsDirectory(): File? =
 fun File.prepareParentFolder(): Boolean =
     parentFile.let { it == null || it.exists() || it.mkdirs() }
 
+@Throws(FileSystemException::class)
+fun File.preparedParentFolder(): File =
+    if (prepareParentFolder()) {
+        this
+    } else {
+        throw FileSystemException(file = this, reason = "Failed to create target directory.")
+    }
+
 inline fun File.withPreparedParentFolder(crossinline block: () -> Unit) {
     if (prepareParentFolder()) block()
 }

@@ -3,7 +3,6 @@
 package io.github.xfy9326.aio.okio
 
 import android.net.Uri
-import io.github.xfy9326.aio.utils.prepareParentFolder
 import okio.*
 import java.io.File
 import java.io.IOException
@@ -40,11 +39,7 @@ fun Uri.copyTo(target: File, overwrite: Boolean = false, append: Boolean = false
             throw FileAlreadyExistsException(file = target, reason = "Tried to overwrite the destination, but failed to delete it.")
     }
 
-    if (target.prepareParentFolder()) {
-        return source().copyTo(target.sink(append))
-    } else {
-        throw FileSystemException(file = target, reason = "Failed to create target directory.")
-    }
+    return target.source().copyTo(target.sink(append))
 }
 
 @Throws(IOException::class)
