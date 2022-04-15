@@ -4,17 +4,18 @@ package io.github.xfy9326.aio.okio
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Rect
 import okio.BufferedSink
 import okio.BufferedSource
 import java.io.IOException
 
 @Throws(IOException::class)
-fun BufferedSource.readBitmap(): Bitmap? =
-    BitmapFactory.decodeStream(inputStream())
+fun BufferedSource.readBitmap(outPadding: Rect? = null, opts: BitmapFactory.Options? = null): Bitmap? =
+    BitmapFactory.decodeStream(inputStream(), outPadding, opts)
 
 @Throws(IOException::class)
-fun BufferedSource.forceReadBitmap(): Bitmap =
-    readBitmap() ?: throw IOException("Can't read this as Bitmap!")
+fun BufferedSource.forceReadBitmap(outPadding: Rect? = null, opts: BitmapFactory.Options? = null): Bitmap =
+    readBitmap(outPadding, opts) ?: throw IOException("Can't read this as Bitmap!")
 
 @Throws(IOException::class)
 fun BufferedSink.writeBitmap(bitmap: Bitmap, format: Bitmap.CompressFormat, quality: Int = 100, flush: Boolean = true): Boolean =

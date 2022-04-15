@@ -45,3 +45,12 @@ fun File.preparedParentFolder(): File =
 inline fun File.withPreparedParentFolder(crossinline block: () -> Unit) {
     if (prepareParentFolder()) block()
 }
+
+internal fun File.checkOverwrite(overwrite: Boolean) {
+    if (exists()) {
+        if (!overwrite)
+            throw FileAlreadyExistsException(file = this, reason = "The destination file already exists.")
+        else if (!delete())
+            throw FileAlreadyExistsException(file = this, reason = "Tried to overwrite the destination, but failed to delete it.")
+    }
+}
