@@ -26,6 +26,14 @@ fun Bitmap.tryRecycle() {
     }
 }
 
+inline fun <R> Bitmap.use(crossinline block: (Bitmap) -> R): R {
+    try {
+        return block(this)
+    } finally {
+        tryRecycle()
+    }
+}
+
 object ImageMimeType {
     const val IMAGE = "image/*"
     const val PNG = "image/png"
