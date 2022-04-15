@@ -4,6 +4,9 @@ package io.github.xfy9326.aio.utils
 
 import java.io.File
 
+fun filePath(vararg str: String): String? =
+    str.joinToFilePath()
+
 fun Array<out String>.joinToFilePath(): String? =
     if (isEmpty()) null else joinToString(File.separator)
 
