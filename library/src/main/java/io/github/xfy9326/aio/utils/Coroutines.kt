@@ -16,13 +16,28 @@ suspend inline fun <T> runIOJob(printStackTrace: Boolean = true, crossinline blo
     }
 
 @Throws(IllegalStateException::class)
-inline fun <T> Mutex.withTryLock(owner: Any? = null, crossinline action: () -> T): T? {
-    if (tryLock(owner)) {
+inline fun Mutex.withTryLock(owner: Any? = null, action: () -> Unit): Boolean {
+    return if (tryLock(owner)) {
         try {
-            return action()
+            action()
         } finally {
             unlock(owner)
         }
+        true
+    } else {
+        false
     }
-    return null
+}
+
+@Throws(IllegalStateException::class)
+inline fun <T> Mutex.withTryLock(owner: Any? = null, action: () -> T, onHasLocked: () -> T): T {
+    return if (tryLock(owner)) {
+        try {
+            action()
+        } finally {
+            unlock(owner)
+        }
+    } else {
+        onHasLocked()
+    }
 }
