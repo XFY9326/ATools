@@ -57,7 +57,7 @@ dependencies {
     implementation("androidx.startup:startup-runtime:1.1.1")
 
     // Kotlin Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
 
     // Android Dependencies
     implementation("androidx.core:core:1.7.0")
