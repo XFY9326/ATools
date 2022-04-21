@@ -8,8 +8,8 @@ import kotlinx.coroutines.sync.Mutex
 suspend inline fun <T> withIOContext(parentJob: Job? = null, noinline block: suspend CoroutineScope.() -> T): T =
     withContext(Dispatchers.IO + SupervisorJob(parentJob), block)
 
-suspend inline fun <T> runIOJob(printStackTrace: Boolean = true, crossinline block: suspend CoroutineScope.() -> T): Result<T> =
-    withIOContext {
+suspend fun <T> runIOJob(parentJob: Job? = null, printStackTrace: Boolean = true, block: suspend CoroutineScope.() -> T): Result<T> =
+    withIOContext(parentJob) {
         runCatching { block() }.also {
             if (printStackTrace) it.exceptionOrNull()?.printStackTrace()
         }
