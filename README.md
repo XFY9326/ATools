@@ -33,4 +33,6 @@ dependencyResolutionManagement {
 
 ## Modules
 
-- [IO](io/README.md)  Android IO Tools
+| Library | Description |
+| ----- | ----- |
+| [IO](io/README.md) | File and image related tools |
