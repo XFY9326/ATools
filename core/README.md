@@ -4,7 +4,7 @@
 
 ```kotlin
 dependencies {
-    implementation("io.github.xfy9326:atools-core:<version>")
+    implementation("io.github.xfy9326.atools:atools-core:<version>")
 }
 ```
 

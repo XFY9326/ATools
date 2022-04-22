@@ -34,7 +34,7 @@ android {
 publishing {
     publications {
         create<MavenPublication>("JitPack") {
-            groupId = "io.github.xfy9326"
+            groupId = "io.github.xfy9326.atools"
             artifactId = "atools-ui"
             version = currentGitCommitTag ?: "$gitCommitShortId-SNAPSHOT"
 

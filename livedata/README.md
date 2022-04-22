@@ -4,7 +4,7 @@
 
 ```kotlin
 dependencies {
-    implementation("io.github.xfy9326:atools-livedata:<version>")
+    implementation("io.github.xfy9326.atools:atools-livedata:<version>")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:<version>")
 }
 ```

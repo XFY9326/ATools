@@ -4,7 +4,7 @@
 
 ```kotlin
 dependencies {
-    implementation("io.github.xfy9326:atools-io:<version>")
+    implementation("io.github.xfy9326.atools:atools-io:<version>")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:<version>")
 }
 ```
