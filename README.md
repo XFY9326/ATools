@@ -35,4 +35,7 @@ dependencyResolutionManagement {
 
 | Library | Description |
 | ----- | ----- |
+| [Core](core/README.md) | Base functions and application context |
 | [IO](io/README.md) | File and image related tools |
+| [Coroutines](coroutines/README.md) | More Flow and Mutex functions |
+| [LiveData](livedata/README.md) | EventLiveData and NotifyLiveData |
