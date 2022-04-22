@@ -16,6 +16,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AndroidIOTools"
+rootProject.name = "android-tools"
 include(":app")
-include(":library")
+include(":io")

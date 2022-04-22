@@ -7,7 +7,7 @@ android {
     compileSdk = 31
 
     defaultConfig {
-        applicationId = "io.github.xfy9326.demo.aio"
+        applicationId = "io.github.xfy9326.tools.demo"
         minSdk = 19
         targetSdk = 31
         versionCode = 1
@@ -34,8 +34,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":library"))
-
+    implementation(project(":io"))
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.appcompat:appcompat:1.4.1")
 

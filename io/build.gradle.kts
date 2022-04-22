@@ -40,9 +40,9 @@ android {
 
 publishing {
     publications {
-        create<MavenPublication>("release") {
-            groupId = "io.github.xfy9326"
-            artifactId = "AndroidIOTools"
+        create<MavenPublication>("JitPack") {
+            groupId = group.toString()
+            artifactId = "android-tools-io"
             version = currentGitCommitTag ?: "$gitCommitShortId-SNAPSHOT"
 
             afterEvaluate {

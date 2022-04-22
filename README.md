@@ -1,13 +1,17 @@
-# AndroidIOTools
-[![](https://jitpack.io/v/io.github.xfy9326/AndroidIOTools.svg)](https://jitpack.io/#io.github.xfy9326/AndroidIOTools)  
-Optimising the IO programming experience on Android
+# AndroidTools
+
+Optimising the programming experience on Android
 
 ## Requirements
+
+- OpenJDK 11
 - Kotlin is recommended
 - Android SDK Version >= 19
 
 ## Install
+
 Gradle
+
 ```kotlin
 // Method 1 (build.gradle.kts)
 allprojects {
@@ -26,18 +30,7 @@ dependencyResolutionManagement {
     }
 }
 ```
-```kotlin
-dependencies {
-    implementation("io.github.xfy9326:AndroidIOTools:<version>")
-}
-```
 
-## Build Environment
-- OpenJDK 11
+## Modules
 
-## Dependencies
-- AndroidX StartUp
-- AndroidX Annotation
-- AndroidX Core
-- KotlinX Coroutines
-- Okio
+- [IO](io/README.md)  Android IO Tools
