@@ -11,6 +11,6 @@ dependencies {
 
 ## Dependencies
 
-- AndroidX Core
+- [ATools Core](../core/README.md)
 - KotlinX Coroutines
 - Okio
