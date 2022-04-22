@@ -11,7 +11,7 @@
             tools:node="merge"
             tools:replace="android:authorities">
             <meta-data
-                android:name="io.github.xfy9326.atools.core.startup.AIOInitializer"
+                android:name="io.github.xfy9326.atools.core.startup.AToolsInitializer"
                 android:value="androidx.startup" />
         </provider>
     </application>

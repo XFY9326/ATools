@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = SDKVersion.compileSDK
 
     defaultConfig {
         applicationId = "io.github.xfy9326.atools.demo"
-        minSdk = 19
-        targetSdk = 31
+        minSdk = SDKVersion.minSDK
+        targetSdk = SDKVersion.targetSDK
         versionCode = 1
         versionName = "1.0"
 

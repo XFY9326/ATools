@@ -6,7 +6,7 @@ Optimising the programming experience on Android
 
 - OpenJDK 11
 - Kotlin is recommended
-- Android SDK Version >= 19
+- Android SDK Version >= 23 (Android 6.0)
 
 ## Install
 
