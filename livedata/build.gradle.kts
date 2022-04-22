@@ -47,7 +47,7 @@ publishing {
 
 dependencies {
     // LiveData
-    api(libs.androidx.livedata)
+    implementation(libs.androidx.livedata)
 
     // Test
     testImplementation(libs.junit)
