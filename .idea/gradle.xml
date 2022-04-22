@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/coroutines" />
+            <option value="$PROJECT_DIR$/datastore-preference" />
             <option value="$PROJECT_DIR$/io" />
             <option value="$PROJECT_DIR$/livedata" />
             <option value="$PROJECT_DIR$/ui" />

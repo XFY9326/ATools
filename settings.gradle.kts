@@ -21,7 +21,8 @@ include(":app")
 
 include(":core")
 include(":io")
+include(":ui")
 
 include(":coroutines")
 include(":livedata")
-include(":ui")
+include(":datastore-preference")

@@ -36,9 +36,11 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":io"))
+    implementation(project(":ui"))
 
     implementation(project(":livedata"))
     implementation(project(":coroutines"))
+    implementation(project(":datastore-preference"))
 
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)

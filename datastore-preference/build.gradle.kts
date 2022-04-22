@@ -35,7 +35,7 @@ publishing {
     publications {
         create<MavenPublication>("JitPack") {
             groupId = "io.github.xfy9326"
-            artifactId = "atools-ui"
+            artifactId = "atools-datastore-preference"
             version = currentGitCommitTag ?: "$gitCommitShortId-SNAPSHOT"
 
             afterEvaluate {
@@ -46,12 +46,14 @@ publishing {
 }
 
 dependencies {
-    api(project(":core"))
+    // Kotlin Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // DataStore
+    implementation(libs.androidx.datastore.pref)
 
     // AndroidX
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.lifecycle.runtime)
-    implementation(libs.androidx.lifecycle.common)
+    implementation(libs.androidx.preference)
 
     // Test
     testImplementation(libs.junit)

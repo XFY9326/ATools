@@ -38,5 +38,6 @@ dependencyResolutionManagement {
 | [Core](core/README.md) | Base functions and application context |
 | [IO](io/README.md) | File and image related tools |
 | [UI](ui/README.md) | UI related tools |
-| [Coroutines](coroutines/README.md) | More Flow and Mutex functions |
+| [Coroutines](coroutines/README.md) | More Coroutines, Flow and Mutex functions |
 | [LiveData](livedata/README.md) | EventLiveData and NotifyLiveData |
+| [DataStore-Preference](datastore-preference/README.md) | DataStore and Preference tools |
