@@ -5,8 +5,6 @@ plugins {
     kotlin("android") version "1.6.21" apply false
 }
 
-group = "io.github.xfy9326"
-
 tasks.register<Delete>("clean") {
     delete(rootProject.buildDir)
 }

@@ -4,14 +4,13 @@
 
 ```kotlin
 dependencies {
-    implementation("io.github.xfy9326:android-tools-io:<version>")
+    implementation("io.github.xfy9326:atools-io:<version>")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:<version>")
 }
 ```
 
 ## Dependencies
 
-- AndroidX StartUp
-- AndroidX Annotation
 - AndroidX Core
 - KotlinX Coroutines
 - Okio

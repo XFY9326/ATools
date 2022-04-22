@@ -18,4 +18,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "android-tools"
 include(":app")
+
+include(":core")
 include(":io")
+
+include(":coroutines")
+include(":livedata")

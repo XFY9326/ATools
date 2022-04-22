@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = SDKVersion.compileSDK
 
     defaultConfig {
-        minSdk = 19
-        targetSdk = 31
+        minSdk = SDKVersion.minSDK
+        targetSdk = SDKVersion.targetSDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -41,8 +41,8 @@ android {
 publishing {
     publications {
         create<MavenPublication>("JitPack") {
-            groupId = group.toString()
-            artifactId = "android-tools-io"
+            groupId = "io.github.xfy9326"
+            artifactId = "atools-io"
             version = currentGitCommitTag ?: "$gitCommitShortId-SNAPSHOT"
 
             afterEvaluate {
@@ -53,20 +53,15 @@ publishing {
 }
 
 dependencies {
-    // App StartUp
-    implementation("androidx.startup:startup-runtime:1.1.1")
-
-    // Kotlin Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
-
-    // Android Dependencies
-    implementation("androidx.core:core:1.7.0")
-    implementation("androidx.annotation:annotation:1.3.0")
+    api(project(":core"))
 
     // Okio
-    api("com.squareup.okio:okio:3.0.0")
+    api(libs.okio)
+
+    // Kotlin Coroutines
+    implementation(libs.kotlinx.coroutines.android)
 
     // Test
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
 }

@@ -7,7 +7,7 @@ android {
     compileSdk = 31
 
     defaultConfig {
-        applicationId = "io.github.xfy9326.tools.demo"
+        applicationId = "io.github.xfy9326.atools.demo"
         minSdk = 19
         targetSdk = 31
         versionCode = 1
@@ -34,10 +34,15 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
     implementation(project(":io"))
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    implementation(project(":livedata"))
+    implementation(project(":coroutines"))
+
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.appcompat)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
 }
