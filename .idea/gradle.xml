@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/coroutines" />
             <option value="$PROJECT_DIR$/io" />
             <option value="$PROJECT_DIR$/livedata" />
+            <option value="$PROJECT_DIR$/ui" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

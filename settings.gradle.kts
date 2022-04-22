@@ -24,3 +24,4 @@ include(":io")
 
 include(":coroutines")
 include(":livedata")
+include(":ui")
