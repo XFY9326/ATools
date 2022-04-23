@@ -16,7 +16,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "android-tools"
+rootProject.name = "ATools"
+
 include(":app")
 
 include(":core")
