@@ -1,4 +1,5 @@
 # AndroidTools
+[![](https://jitpack.io/v/io.github.xfy9326/atools.svg)](https://jitpack.io/#io.github.xfy9326/atools)  
 
 Optimising the programming experience on Android
 
