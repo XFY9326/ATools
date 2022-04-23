@@ -10,8 +10,9 @@ dependencies {
     // App StartUp
     implementation(libs.androidx.startup)
 
-    // Android Dependencies
+    // AndroidX
     api(libs.androidx.core)
+    api(libs.androidx.annotation)
 
     // Test
     testImplementation(libs.junit)
