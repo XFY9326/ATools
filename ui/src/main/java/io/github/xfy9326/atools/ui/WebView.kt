@@ -2,7 +2,6 @@
 
 package io.github.xfy9326.atools.ui
 
-import android.os.Build
 import android.webkit.CookieManager
 import android.webkit.WebStorage
 import android.webkit.WebView
@@ -43,13 +42,8 @@ fun WebView.clearAll(cookies: Boolean = true, webStorage: Boolean = true) {
     clearCache(true)
     if (cookies) {
         CookieManager.getInstance().apply {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                removeAllCookies(null)
-                flush()
-            } else {
-                @Suppress("DEPRECATION")
-                removeAllCookie()
-            }
+            removeAllCookies(null)
+            flush()
         }
     }
     if (webStorage) {
