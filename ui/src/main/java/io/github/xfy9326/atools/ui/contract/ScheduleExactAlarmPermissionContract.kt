@@ -12,7 +12,7 @@ import androidx.annotation.RequiresApi
 import io.github.xfy9326.atools.ui.packageUri
 
 @RequiresApi(Build.VERSION_CODES.S)
-class ScheduleNextAlarmPermissionContract : ActivityResultContract<Unit?, Boolean>() {
+class ScheduleExactAlarmPermissionContract : ActivityResultContract<Unit?, Boolean>() {
     override fun createIntent(context: Context, input: Unit?): Intent =
         Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, context.packageUri)
 
