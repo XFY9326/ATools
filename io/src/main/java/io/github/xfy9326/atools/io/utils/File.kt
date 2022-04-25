@@ -42,8 +42,8 @@ fun File.preparedParentFolder(): File =
         throw FileSystemException(file = this, reason = "Failed to create target directory.")
     }
 
-inline fun File.withPreparedParentFolder(crossinline block: () -> Unit) {
-    if (prepareParentFolder()) block()
+inline fun File.withPreparedParentFolder(crossinline block: (File) -> Unit) {
+    if (prepareParentFolder()) block(this)
 }
 
 internal fun File.checkOverwrite(overwrite: Boolean) {
