@@ -2,8 +2,8 @@
 
 package io.github.xfy9326.atools.ui
 
-import android.app.AlertDialog
 import android.content.DialogInterface
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 
