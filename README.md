@@ -44,3 +44,4 @@ dependencyResolutionManagement {
 | [Coroutines](coroutines/README.md) | More Coroutines, Flow and Mutex functions |
 | [LiveData](livedata/README.md) | EventLiveData and NotifyLiveData |
 | [DataStore-Preference](datastore-preference/README.md) | DataStore and Preference tools |
+| [IO-Serialization-Json](io-serialization-json/README.md) | Extra function for kotlinx serialization json |

@@ -38,9 +38,11 @@ dependencies {
     implementation(project(":io"))
     implementation(project(":ui"))
 
+    implementation(project(":crash"))
     implementation(project(":livedata"))
     implementation(project(":coroutines"))
     implementation(project(":datastore-preference"))
+    implementation(project(":io-serialization-json"))
 
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
