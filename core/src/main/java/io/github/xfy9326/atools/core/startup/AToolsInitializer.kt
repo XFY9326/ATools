@@ -6,7 +6,7 @@ import androidx.startup.Initializer
 
 @Keep
 @Suppress("unused")
-internal class AToolsInitializer : Initializer<Unit> {
+class AToolsInitializer : Initializer<Unit> {
     companion object {
         private var startUpApplicationContext: Context? = null
         val applicationContext: Context

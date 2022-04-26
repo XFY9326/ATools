@@ -39,7 +39,7 @@ fun File.preparedParentFolder(): File =
     if (prepareParentFolder()) {
         this
     } else {
-        throw FileSystemException(file = this, reason = "Failed to create target directory.")
+        throw FileSystemException(file = this, reason = "Failed to create parent directory.")
     }
 
 inline fun File.withPreparedParentFolder(crossinline block: (File) -> Unit) {

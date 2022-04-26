@@ -1,5 +1,6 @@
 # AndroidTools
-[![](https://jitpack.io/v/io.github.xfy9326/atools.svg)](https://jitpack.io/#io.github.xfy9326/atools)  
+
+[![](https://jitpack.io/v/io.github.xfy9326/atools.svg)](https://jitpack.io/#io.github.xfy9326/atools)
 
 Optimising the programming experience on Android
 
@@ -39,6 +40,7 @@ dependencyResolutionManagement {
 | [Core](core/README.md) | Base functions and application context |
 | [IO](io/README.md) | File and image related tools |
 | [UI](ui/README.md) | UI related tools |
+| [Crash](crash/README.md) | Crash logger |
 | [Coroutines](coroutines/README.md) | More Coroutines, Flow and Mutex functions |
 | [LiveData](livedata/README.md) | EventLiveData and NotifyLiveData |
 | [DataStore-Preference](datastore-preference/README.md) | DataStore and Preference tools |

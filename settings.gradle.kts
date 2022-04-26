@@ -24,6 +24,7 @@ include(":core")
 include(":io")
 include(":ui")
 
+include(":crash")
 include(":coroutines")
 include(":livedata")
 include(":datastore-preference")
