@@ -27,7 +27,7 @@ fun Source.copyTo(sink: Sink, closeAll: Boolean = true): Long {
 fun File.copyTo(uri: Uri, append: Boolean = false): Long {
     if (!this.exists())
         throw NoSuchFileException(file = this, reason = "The source file doesn't exist.")
-    else if (!this.isDirectory)
+    else if (this.isDirectory)
         throw FileSystemException(file = this, reason = "The source file can't be directory.")
 
     return source().copyTo(uri.sink(if (append) "wa" else "w"))
