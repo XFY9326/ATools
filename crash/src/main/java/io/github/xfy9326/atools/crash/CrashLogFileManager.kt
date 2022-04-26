@@ -7,18 +7,19 @@ internal object CrashLogFileManager {
     private const val PROPERTIES_LAST_CRASH_MILLS = "last_crash_mills"
     private const val PROPERTIES_LAST_CRASH_LOG_FILE = "last_crash_log_file"
     private const val FILE_LAST_CRASH_PROPERTIES = "last_crash.properties"
+    private const val FILE_PREFIX_CRASH = "Crash_"
     private const val FILE_EXTENSION_LOG = ".log"
 
     fun listLogFiles(logDir: File): List<File> =
         logDir.takeIf { it.isDirectory }?.listFiles { _, name ->
-            name.endsWith(FILE_EXTENSION_LOG)
+            name.startsWith(FILE_PREFIX_CRASH) && name.endsWith(FILE_EXTENSION_LOG)
         }?.sortedByDescending {
             it.lastModified()
         } ?: emptyList()
 
     fun cleanOldLog(logDir: File, maxLogAmount: Int) {
         logDir.takeIf { it.isDirectory }?.listFiles { _, name ->
-            name.endsWith(FILE_EXTENSION_LOG)
+            name.startsWith(FILE_PREFIX_CRASH) && name.endsWith(FILE_EXTENSION_LOG)
         }?.takeIf { it.size - 1 > maxLogAmount + 1 }?.sortedBy {
             it.lastModified()
         }?.let { files ->
@@ -28,9 +29,9 @@ internal object CrashLogFileManager {
         }
     }
 
-    fun logCrash(crashLogDir: File, crashLog: String): File {
+    fun logCrash(crashLogDir: File, versionName: String, crashLog: String): File {
         val mills = System.currentTimeMillis()
-        val crashLogFile = File(crashLogDir, "$mills$FILE_EXTENSION_LOG")
+        val crashLogFile = File(crashLogDir, "$FILE_PREFIX_CRASH${versionName}_$mills$FILE_EXTENSION_LOG")
         if (crashLogDir.let { it.exists() || it.mkdirs() }) {
             crashLogFile.writeText(crashLog)
             saveLastCrashInfo(crashLogDir, mills, crashLogFile)

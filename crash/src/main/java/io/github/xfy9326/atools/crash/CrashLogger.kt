@@ -87,7 +87,8 @@ class CrashLogger private constructor(context: Context, private var strategy: Cr
     private fun onException(t: Thread, e: Throwable) {
         val lastCrashInfo = lastCrashInfo()
         val crashLog = strategy.crashLogGenerator.onGenerateCrashLog(appContext, scene, t, e)
-        val logFile = CrashLogFileManager.logCrash(strategy.crashLogDir, crashLog)
+        val appVersion = appContext.appVersion()
+        val logFile = CrashLogFileManager.logCrash(strategy.crashLogDir, appVersion.first, crashLog)
         CrashLogFileManager.cleanOldLog(strategy.crashLogDir, strategy.maxLogAmount)
         onCrashLogged?.invoke(lastCrashInfo, logFile)
     }
