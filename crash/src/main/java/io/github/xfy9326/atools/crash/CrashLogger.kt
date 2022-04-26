@@ -38,13 +38,13 @@ class CrashLogger private constructor(context: Context, private var strategy: Cr
         this.scene = scene
     }
 
-    fun updateStrategy(strategy: CrashLoggerStrategy) {
+    fun setStrategy(strategy: CrashLoggerStrategy) {
         this.strategy = strategy
     }
 
-    fun lastCrashInfo() = CrashLogFileManager.readLastCrashInfo(strategy.crashLogDir)
+    fun getLastCrashInfo() = CrashLogFileManager.readLastCrashInfo(strategy.crashLogDir)
 
-    fun listLogFiles() = CrashLogFileManager.listLogFiles(strategy.crashLogDir)
+    fun getCrashLogFiles() = CrashLogFileManager.listLogFiles(strategy.crashLogDir)
 
     fun setOnCrashLoggedListener(action: (LastCrashInfo, File) -> Unit) {
         onCrashLogged = action
@@ -85,7 +85,7 @@ class CrashLogger private constructor(context: Context, private var strategy: Cr
     }
 
     private fun onException(t: Thread, e: Throwable) {
-        val lastCrashInfo = lastCrashInfo()
+        val lastCrashInfo = getLastCrashInfo()
         val crashLog = strategy.crashLogGenerator.onGenerateCrashLog(appContext, scene, t, e)
         val appVersion = appContext.appVersion()
         val logFile = CrashLogFileManager.logCrash(strategy.crashLogDir, appVersion.first, crashLog)
