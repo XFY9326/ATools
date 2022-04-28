@@ -25,7 +25,7 @@ inline fun <reified T> BufferedSink.writeJSON(json: Json = Json.Default, data: T
 
 @Throws(FileNotFoundException::class, SerializationException::class)
 inline fun <reified T> File.readJSON(json: Json = Json.Default): T =
-    source().readJSON<T>(json)
+    source().readJSON(json)
 
 @Throws(FileNotFoundException::class, SerializationException::class)
 inline fun <reified T> File.writeJSON(data: T, json: Json = Json.Default): Unit =
@@ -33,7 +33,7 @@ inline fun <reified T> File.writeJSON(data: T, json: Json = Json.Default): Unit 
 
 @Throws(IOException::class, SerializationException::class)
 inline fun <reified T> Uri.readJSON(json: Json = Json.Default): T =
-    source().readJSON<T>(json)
+    source().readJSON(json)
 
 @Throws(IOException::class, SerializationException::class)
 inline fun <reified T> Uri.writeJSON(data: T, json: Json = Json.Default): Unit =
