@@ -1,6 +1,7 @@
 package io.github.xfy9326.atools.crash
 
 import java.io.File
+import java.io.IOException
 import java.util.*
 
 internal object CrashLogFileManager {
@@ -10,6 +11,7 @@ internal object CrashLogFileManager {
     private const val FILE_PREFIX_CRASH = "Crash_"
     private const val FILE_EXTENSION_LOG = ".log"
 
+    @Throws(IOException::class)
     fun listLogFiles(logDir: File): List<File> =
         logDir.takeIf { it.isDirectory }?.listFiles { _, name ->
             name.startsWith(FILE_PREFIX_CRASH) && name.endsWith(FILE_EXTENSION_LOG)
@@ -17,6 +19,7 @@ internal object CrashLogFileManager {
             it.lastModified()
         } ?: emptyList()
 
+    @Throws(IOException::class)
     fun cleanOldLog(logDir: File, maxLogAmount: Int) {
         logDir.takeIf { it.isDirectory }?.listFiles { _, name ->
             name.startsWith(FILE_PREFIX_CRASH) && name.endsWith(FILE_EXTENSION_LOG)
@@ -29,6 +32,7 @@ internal object CrashLogFileManager {
         }
     }
 
+    @Throws(IOException::class)
     fun logCrash(crashLogDir: File, versionName: String, crashLog: String): File {
         val mills = System.currentTimeMillis()
         val crashLogFile = File(crashLogDir, "$FILE_PREFIX_CRASH${versionName}_$mills$FILE_EXTENSION_LOG")
@@ -41,6 +45,7 @@ internal object CrashLogFileManager {
         return crashLogFile
     }
 
+    @Throws(IOException::class)
     private fun saveLastCrashInfo(crashLogDir: File, crashMills: Long, crashLogFile: File) {
         saveCrashProperties(crashLogDir, Properties().also {
             it[PROPERTIES_LAST_CRASH_MILLS] = crashMills.toString()
@@ -48,6 +53,7 @@ internal object CrashLogFileManager {
         })
     }
 
+    @Throws(IOException::class)
     fun readLastCrashInfo(crashLogDir: File): LastCrashInfo {
         return readCrashProperties(crashLogDir).let {
             LastCrashInfo(
@@ -57,6 +63,7 @@ internal object CrashLogFileManager {
         }
     }
 
+    @Throws(IOException::class)
     private fun saveCrashProperties(crashLogDir: File, properties: Properties) {
         val crashLogMeta = File(crashLogDir, FILE_LAST_CRASH_PROPERTIES)
         if (crashLogDir.let { it.exists() || it.mkdirs() }) {
@@ -66,6 +73,7 @@ internal object CrashLogFileManager {
         }
     }
 
+    @Throws(IOException::class)
     private fun readCrashProperties(crashLogDir: File): Properties {
         val crashLogMeta = File(crashLogDir, FILE_LAST_CRASH_PROPERTIES)
         val properties = Properties()

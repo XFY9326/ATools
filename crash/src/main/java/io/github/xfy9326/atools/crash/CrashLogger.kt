@@ -4,6 +4,7 @@ package io.github.xfy9326.atools.crash
 
 import android.content.Context
 import java.io.File
+import java.io.IOException
 import kotlin.system.exitProcess
 
 class CrashLogger private constructor(context: Context, private var strategy: CrashLoggerStrategy) {
@@ -42,8 +43,10 @@ class CrashLogger private constructor(context: Context, private var strategy: Cr
         this.strategy = strategy
     }
 
+    @Throws(IOException::class)
     fun getLastCrashInfo() = CrashLogFileManager.readLastCrashInfo(strategy.crashLogDir)
 
+    @Throws(IOException::class)
     fun getCrashLogFiles() = CrashLogFileManager.listLogFiles(strategy.crashLogDir)
 
     fun setOnCrashLoggedListener(action: (LastCrashInfo, File) -> Unit) {
