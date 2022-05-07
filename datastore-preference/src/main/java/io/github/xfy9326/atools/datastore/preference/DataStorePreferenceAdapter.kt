@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate")
 
 package io.github.xfy9326.atools.datastore.preference
 
@@ -8,32 +8,27 @@ import androidx.preference.PreferenceDataStore
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
-open class DataStorePreferenceAdapter(private val dataStore: DataStore<Preferences>, scope: CoroutineScope) : PreferenceDataStore() {
-    private val prefScope = CoroutineScope(scope.coroutineContext + SupervisorJob() + Dispatchers.IO)
+open class DataStorePreferenceAdapter(private val dataStore: DataStore<Preferences>, scope: CoroutineScope) : PreferenceDataStore(),
+    CoroutineScope by CoroutineScope(scope.coroutineContext + SupervisorJob() + Dispatchers.IO) {
+    protected val dsData = dataStore.data.shareIn(scope, SharingStarted.Eagerly, 1)
 
-    private val dsData = dataStore.data.shareIn(prefScope, SharingStarted.Eagerly, 1)
-
-    private fun <T> putData(key: Preferences.Key<T>, value: T?) {
-        prefScope.launch {
+    protected open fun <T> putData(key: Preferences.Key<T>, value: T?) {
+        launch {
             dataStore.edit {
                 if (value != null) it[key] = value else it.remove(key)
             }
         }
     }
 
-    private fun <T> readNullableData(key: Preferences.Key<T>, defValue: T?): T? {
-        return runBlocking(prefScope.coroutineContext) {
-            dsData.map {
-                it[key] ?: defValue
-            }.firstOrNull()
+    protected open fun <T> readNullableData(key: Preferences.Key<T>, defValue: T?): T? {
+        return runBlocking(coroutineContext) {
+            dsData.map { it[key] ?: defValue }.firstOrNull()
         }
     }
 
-    private fun <T> readNonNullData(key: Preferences.Key<T>, defValue: T): T {
-        return runBlocking(prefScope.coroutineContext) {
-            dsData.map {
-                it[key] ?: defValue
-            }.first()
+    protected open fun <T> readNonNullData(key: Preferences.Key<T>, defValue: T): T {
+        return runBlocking(coroutineContext) {
+            dsData.map { it[key] ?: defValue }.first()
         }
     }
 
