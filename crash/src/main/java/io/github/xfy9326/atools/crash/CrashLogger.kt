@@ -35,7 +35,7 @@ class CrashLogger private constructor(context: Context, private var strategy: Cr
         this.enabled = enabled
     }
 
-    fun setScene(scene: String) {
+    fun setScene(scene: String?) {
         this.scene = scene
     }
 
