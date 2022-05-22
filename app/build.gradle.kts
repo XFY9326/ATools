@@ -5,6 +5,7 @@ plugins {
 
 android {
     compileSdk = SDKVersion.compileSDK
+    namespace = "io.github.xfy9326.atools.demo"
 
     defaultConfig {
         applicationId = "io.github.xfy9326.atools.demo"

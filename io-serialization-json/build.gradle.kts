@@ -4,6 +4,10 @@ plugins {
     `maven-publish`
 }
 
+android {
+    namespace = "io.github.xfy9326.atools.io.serialization.json"
+}
+
 publishToJitPack("atools-io-serialization-json")
 
 dependencies {

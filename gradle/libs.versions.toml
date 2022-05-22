@@ -1,7 +1,7 @@
 [versions]
 # KotlinX
 kotlinx-coroutines-android = "1.6.1"
-kotlinx-serialization-json = "1.3.2"
+kotlinx-serialization-json = "1.3.3"
 
 # AndroidX
 androidx-core = "1.7.0"

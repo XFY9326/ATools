@@ -4,6 +4,10 @@ plugins {
     `maven-publish`
 }
 
+android {
+    namespace = "io.github.xfy9326.atools.coroutines"
+}
+
 publishToJitPack("atools-coroutines")
 
 dependencies {
