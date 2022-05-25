@@ -5,7 +5,7 @@
     <application>
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="io.github.xfy9326.atools.androidx-startup"
+            android:authorities="${applicationId}.atools.androidx-startup"
             android:exported="false"
             tools:node="merge"
             tools:replace="android:authorities">
