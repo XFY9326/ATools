@@ -2,6 +2,9 @@
 
 package io.github.xfy9326.atools.io.utils
 
+import android.net.Uri
+import androidx.core.content.FileProvider
+import io.github.xfy9326.atools.core.AppContext
 import java.io.File
 
 fun filePath(vararg str: String): String? =
@@ -54,3 +57,11 @@ internal fun File.checkOverwrite(overwrite: Boolean) {
             throw FileAlreadyExistsException(file = this, reason = "Tried to overwrite the destination, but failed to delete it.")
     }
 }
+
+@Throws(IllegalAccessException::class)
+fun File.getUriByFileProvider(fileProviderAuth: String, displayName: String? = null): Uri =
+    if (displayName == null) {
+        FileProvider.getUriForFile(AppContext, fileProviderAuth, this)
+    } else {
+        FileProvider.getUriForFile(AppContext, fileProviderAuth, this, displayName)
+    }
