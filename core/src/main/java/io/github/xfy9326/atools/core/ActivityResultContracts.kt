@@ -23,6 +23,24 @@ class PackageInstallPermissionContract : ActivityResultContract<Nothing, Boolean
         resultCode == Activity.RESULT_OK
 }
 
+class AccessibilitySettingsContract : ActivityResultContract<Nothing, Boolean>() {
+    override fun createIntent(context: Context, input: Nothing): Intent {
+        return Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+    }
+
+    override fun parseResult(resultCode: Int, intent: Intent?): Boolean =
+        resultCode == Activity.RESULT_OK
+}
+
+class ApplicationDetailSettingsContract : ActivityResultContract<Nothing, Boolean>() {
+    override fun createIntent(context: Context, input: Nothing): Intent {
+        return Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, context.packageUri)
+    }
+
+    override fun parseResult(resultCode: Int, intent: Intent?): Boolean =
+        resultCode == Activity.RESULT_OK
+}
+
 @RequiresApi(Build.VERSION_CODES.S)
 class ScheduleExactAlarmPermissionContract : ActivityResultContract<Unit?, Boolean>() {
     override fun createIntent(context: Context, input: Unit?): Intent =
