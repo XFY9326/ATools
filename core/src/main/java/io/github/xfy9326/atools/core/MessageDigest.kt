@@ -2,10 +2,23 @@
 
 package io.github.xfy9326.atools.core
 
+import java.nio.charset.Charset
 import java.security.MessageDigest
 
-fun String.md5(): String {
-    return MessageDigest.getInstance("MD5").digest(this.toByteArray()).toHex()
+fun String.md5(charset: Charset = Charsets.UTF_8): String {
+    return toByteArray(charset).digest("MD5")
+}
+
+fun String.sha1(charset: Charset = Charsets.UTF_8): String {
+    return toByteArray(charset).digest("SHA-1")
+}
+
+fun String.sha256(charset: Charset = Charsets.UTF_8): String {
+    return toByteArray(charset).digest("SHA-256")
+}
+
+fun ByteArray.digest(algorithm: String): String {
+    return MessageDigest.getInstance(algorithm).digest(this).toHex()
 }
 
 fun ByteArray.toHex(): String {
