@@ -2,10 +2,14 @@
 
 package io.github.xfy9326.atools.io.okio
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Rect
 import android.net.Uri
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.io.IOException
 
 suspend fun Uri.writeTextAsync(text: String, append: Boolean = false): Result<Unit> =
     withContext(Dispatchers.IO) {
@@ -32,5 +36,33 @@ suspend fun File.readTextAsync(): Result<String> =
     withContext(Dispatchers.IO) {
         runCatching {
             readText()
+        }
+    }
+
+suspend fun Uri.writeBitmapAsync(bitmap: Bitmap, format: Bitmap.CompressFormat, quality: Int = 100, flush: Boolean = true): Result<Unit> =
+    withContext(Dispatchers.IO) {
+        runCatching {
+            writeBitmap(bitmap, format, quality, flush)
+        }
+    }
+
+suspend fun Uri.readBitmapAsync(outPadding: Rect? = null, opts: BitmapFactory.Options? = null): Result<Bitmap> =
+    withContext(Dispatchers.IO) {
+        runCatching {
+            readBitmap(outPadding, opts) ?: throw IOException("Bitmap decode failed! Uri: ${this@readBitmapAsync}")
+        }
+    }
+
+suspend fun File.writeBitmapAsync(bitmap: Bitmap, format: Bitmap.CompressFormat, quality: Int = 100, flush: Boolean = true): Result<Unit> =
+    withContext(Dispatchers.IO) {
+        runCatching {
+            writeBitmap(bitmap, format, quality, flush)
+        }
+    }
+
+suspend fun File.readBitmapAsync(outPadding: Rect? = null, opts: BitmapFactory.Options? = null): Result<Bitmap> =
+    withContext(Dispatchers.IO) {
+        runCatching {
+            readBitmap(outPadding, opts) ?: throw IOException("Bitmap decode failed! File: ${this@readBitmapAsync}")
         }
     }
