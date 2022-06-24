@@ -15,24 +15,21 @@ import io.github.xfy9326.atools.io.utils.tryRecycle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-object ImageHelper {
-    suspend fun exportBitmapToPublicAlbum(
-        bitmap: Bitmap,
-        fileName: String,
-        fileRelativeDir: String,
-        compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.PNG,
-        quality: Int = 100,
-        recycle: Boolean = false,
-        displayName: String = fileName,
-        createMills: Long = System.currentTimeMillis()
-    ): Result<Uri> = withContext(Dispatchers.IO) {
-        runCatching {
-            val contentValues = bitmap.createPublicExportContentValues(fileName, fileRelativeDir, compressFormat, displayName, createMills)
-            val uri = IOManager.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-                ?: error("External content media uri create failed!")
-            uri.sink().useBuffer { writeBitmap(bitmap, compressFormat, quality) }
-            if (recycle) bitmap.tryRecycle()
-            uri.also { it.requestScanMediaFile() }
-        }
+suspend fun Bitmap.exportToPublicAlbum(
+    fileName: String,
+    fileRelativeDir: String,
+    compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.PNG,
+    quality: Int = 100,
+    recycle: Boolean = false,
+    displayName: String = fileName,
+    createMills: Long = System.currentTimeMillis()
+): Result<Uri> = withContext(Dispatchers.IO) {
+    runCatching {
+        val contentValues = createPublicExportContentValues(fileName, fileRelativeDir, compressFormat, displayName, createMills)
+        val uri = IOManager.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+            ?: error("External content media uri create failed!")
+        uri.sink().useBuffer { writeBitmap(this@exportToPublicAlbum, compressFormat, quality) }
+        if (recycle) tryRecycle()
+        uri.also { it.requestScanMediaFile() }
     }
 }
