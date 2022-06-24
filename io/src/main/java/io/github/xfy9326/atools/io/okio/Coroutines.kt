@@ -13,7 +13,6 @@ import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.IOException
 
-@Throws(IOException::class)
 suspend fun AssetFile.readBitmapAsync(outPadding: Rect? = null, opts: BitmapFactory.Options? = null): Result<Bitmap> =
     withContext(Dispatchers.IO) {
         runCatching {
@@ -21,7 +20,6 @@ suspend fun AssetFile.readBitmapAsync(outPadding: Rect? = null, opts: BitmapFact
         }
     }
 
-@Throws(IOException::class)
 suspend fun RawResFile.readBitmapAsync(outPadding: Rect? = null, opts: BitmapFactory.Options? = null): Result<Bitmap> =
     withContext(Dispatchers.IO) {
         runCatching {
@@ -29,7 +27,6 @@ suspend fun RawResFile.readBitmapAsync(outPadding: Rect? = null, opts: BitmapFac
         }
     }
 
-@Throws(IOException::class)
 suspend fun AssetFile.readTextAsync(): Result<String> =
     withContext(Dispatchers.IO) {
         runCatching {
@@ -37,7 +34,6 @@ suspend fun AssetFile.readTextAsync(): Result<String> =
         }
     }
 
-@Throws(IOException::class)
 suspend fun RawResFile.readTextAsync(): Result<String> =
     withContext(Dispatchers.IO) {
         runCatching {
