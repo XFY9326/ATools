@@ -3,13 +3,11 @@
 package io.github.xfy9326.atools.coroutines
 
 import android.content.BroadcastReceiver
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
+@OptIn(DelicateCoroutinesApi::class)
 fun BroadcastReceiver.goAsync(
-    coroutineScope: CoroutineScope = AppScope,
+    coroutineScope: CoroutineScope = GlobalScope,
     dispatcher: CoroutineDispatcher = Dispatchers.Default,
     block: suspend () -> Unit,
 ) {
