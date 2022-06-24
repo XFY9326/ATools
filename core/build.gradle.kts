@@ -17,6 +17,7 @@ dependencies {
     // AndroidX
     api(libs.androidx.core)
     api(libs.androidx.annotation)
+    api(libs.androidx.activity.ktx)
 
     // Test
     testImplementation(libs.junit)

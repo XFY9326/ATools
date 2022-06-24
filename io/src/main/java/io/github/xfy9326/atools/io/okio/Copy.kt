@@ -53,8 +53,8 @@ fun Uri.copyBitmapTo(target: File, overwrite: Boolean = false, compressFormat: B
         copyTo(target, overwrite)
     } else {
         target.checkOverwrite(overwrite)
-        source().useBuffer { forceReadBitmap() }.use { bitmap ->
+        readBitmap()?.use { bitmap ->
             target.sink().useBuffer { writeBitmap(bitmap, compressFormat, quality) }
-        }
+        } ?: throw IOException("Bitmap decode error! Uri: $this")
     }
 }

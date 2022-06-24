@@ -37,7 +37,6 @@ fun Editable?.getText(): String? {
     }
 }
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Menu.setIconTint(@ColorInt colorTint: Int?) {
     iterator().forEach {
         if (colorTint == null) {
