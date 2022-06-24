@@ -3,6 +3,7 @@
 package io.github.xfy9326.atools.ui
 
 import android.animation.Animator
+import android.graphics.Bitmap
 import android.graphics.Paint
 import android.text.Editable
 import android.view.Menu
@@ -10,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewPropertyAnimator
 import androidx.annotation.ColorInt
+import androidx.core.graphics.applyCanvas
 import androidx.core.view.children
 import androidx.core.view.iterator
 import io.github.xfy9326.atools.core.tryCast
@@ -80,3 +82,22 @@ fun ViewPropertyAnimator.setListener(
 
 val Paint.textBaselineHeight: Float
     get() = fontMetrics.let { (it.descent - it.ascent) / 2f }
+
+fun View.requestLayoutToBitmap(
+    widthMeasureSpec: Int,
+    heightMeasureSpec: Int,
+    @ColorInt backgroundColor: Int? = null,
+    config: Bitmap.Config = Bitmap.Config.ARGB_8888
+): Bitmap {
+    measure(widthMeasureSpec, heightMeasureSpec)
+    layout(0, 0, measuredWidth, measuredHeight)
+    requestLayout()
+    return Bitmap.createBitmap(measuredWidth, measuredHeight, config).applyCanvas {
+        if (backgroundColor == null) {
+            background?.draw(this)
+        } else {
+            drawColor(backgroundColor)
+        }
+        draw(this)
+    }
+}
