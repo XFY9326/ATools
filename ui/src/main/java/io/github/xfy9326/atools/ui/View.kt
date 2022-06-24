@@ -4,14 +4,12 @@ package io.github.xfy9326.atools.ui
 
 import android.animation.Animator
 import android.graphics.Paint
-import android.os.Build
 import android.text.Editable
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewPropertyAnimator
 import androidx.annotation.ColorInt
-import androidx.annotation.RequiresApi
 import androidx.core.view.children
 import androidx.core.view.iterator
 import io.github.xfy9326.atools.core.tryCast

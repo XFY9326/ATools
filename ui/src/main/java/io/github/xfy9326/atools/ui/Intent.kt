@@ -3,8 +3,6 @@
 package io.github.xfy9326.atools.ui
 
 import android.content.ClipData
-import android.content.Context
-import android.content.Intent
 import android.net.Uri
 
 fun ClipData.getItemUris(): List<Uri> {
