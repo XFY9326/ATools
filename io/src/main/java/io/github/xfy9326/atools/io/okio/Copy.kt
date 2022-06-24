@@ -4,6 +4,8 @@ package io.github.xfy9326.atools.io.okio
 
 import android.graphics.Bitmap
 import android.net.Uri
+import io.github.xfy9326.atools.io.file.AssetFile
+import io.github.xfy9326.atools.io.file.RawResFile
 import io.github.xfy9326.atools.io.utils.checkOverwrite
 import io.github.xfy9326.atools.io.utils.use
 import okio.*
@@ -24,6 +26,28 @@ fun Source.copyTo(sink: Sink, closeAll: Boolean = true): Long {
 }
 
 @Throws(IOException::class)
+fun AssetFile.copyTo(uri: Uri, append: Boolean = false): Long {
+    return source().copyTo(uri.sink(if (append) "wa" else "w"))
+}
+
+@Throws(IOException::class)
+fun AssetFile.copyTo(file: File, overwrite: Boolean = false, append: Boolean = false): Long {
+    file.checkOverwrite(overwrite)
+    return file.source().copyTo(file.sink(append))
+}
+
+@Throws(IOException::class)
+fun RawResFile.copyTo(uri: Uri, append: Boolean = false): Long {
+    return source().copyTo(uri.sink(if (append) "wa" else "w"))
+}
+
+@Throws(IOException::class)
+fun RawResFile.copyTo(file: File, overwrite: Boolean = false, append: Boolean = false): Long {
+    file.checkOverwrite(overwrite)
+    return file.source().copyTo(file.sink(append))
+}
+
+@Throws(IOException::class)
 fun File.copyTo(uri: Uri, append: Boolean = false): Long {
     if (!this.exists())
         throw NoSuchFileException(file = this, reason = "The source file doesn't exist.")
@@ -34,9 +58,9 @@ fun File.copyTo(uri: Uri, append: Boolean = false): Long {
 }
 
 @Throws(IOException::class)
-fun Uri.copyTo(target: File, overwrite: Boolean = false, append: Boolean = false): Long {
-    target.checkOverwrite(overwrite)
-    return target.source().copyTo(target.sink(append))
+fun Uri.copyTo(file: File, overwrite: Boolean = false, append: Boolean = false): Long {
+    file.checkOverwrite(overwrite)
+    return file.source().copyTo(file.sink(append))
 }
 
 @Throws(IOException::class)

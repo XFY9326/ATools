@@ -6,10 +6,28 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Rect
 import android.net.Uri
+import io.github.xfy9326.atools.io.file.AssetFile
+import io.github.xfy9326.atools.io.file.RawResFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.IOException
+
+@Throws(IOException::class)
+suspend fun AssetFile.readBitmapAsync(outPadding: Rect? = null, opts: BitmapFactory.Options? = null): Result<Bitmap> =
+    withContext(Dispatchers.IO) {
+        runCatching {
+            readBitmap(outPadding, opts) ?: throw IOException("Bitmap decode failed! Uri: ${this@readBitmapAsync}")
+        }
+    }
+
+@Throws(IOException::class)
+suspend fun RawResFile.readBitmapAsync(outPadding: Rect? = null, opts: BitmapFactory.Options? = null): Result<Bitmap> =
+    withContext(Dispatchers.IO) {
+        runCatching {
+            readBitmap(outPadding, opts) ?: throw IOException("Bitmap decode failed! Uri: ${this@readBitmapAsync}")
+        }
+    }
 
 suspend fun Uri.writeTextAsync(text: String, append: Boolean = false): Result<Unit> =
     withContext(Dispatchers.IO) {
