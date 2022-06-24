@@ -26,7 +26,7 @@ fun Bitmap.tryRecycle() {
     }
 }
 
-inline fun <R> Bitmap.use(crossinline block: (Bitmap) -> R): R {
+inline fun <R> Bitmap.use(block: (Bitmap) -> R): R {
     try {
         return block(this)
     } finally {
