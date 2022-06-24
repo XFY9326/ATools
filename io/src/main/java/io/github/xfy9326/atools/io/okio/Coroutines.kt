@@ -29,6 +29,22 @@ suspend fun RawResFile.readBitmapAsync(outPadding: Rect? = null, opts: BitmapFac
         }
     }
 
+@Throws(IOException::class)
+suspend fun AssetFile.readTextAsync(): Result<String> =
+    withContext(Dispatchers.IO) {
+        runCatching {
+            readText()
+        }
+    }
+
+@Throws(IOException::class)
+suspend fun RawResFile.readTextAsync(): Result<String> =
+    withContext(Dispatchers.IO) {
+        runCatching {
+            readText()
+        }
+    }
+
 suspend fun Uri.writeTextAsync(text: String, append: Boolean = false): Result<Unit> =
     withContext(Dispatchers.IO) {
         runCatching {
