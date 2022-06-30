@@ -39,6 +39,11 @@ subprojects {
                     jvmTarget = JavaVersion.VERSION_11.toString()
                 }
             }
+
+            dependencies {
+                add("testImplementation", libs.junit)
+                add("androidTestImplementation", libs.androidx.junit)
+            }
         }
     }
 }

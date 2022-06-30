@@ -13,8 +13,4 @@ publishToJitPack("atools-livedata")
 dependencies {
     // LiveData
     implementation(libs.androidx.livedata)
-
-    // Test
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
 }

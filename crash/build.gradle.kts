@@ -9,9 +9,3 @@ android {
 }
 
 publishToJitPack("atools-crash")
-
-dependencies {
-    // Test
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-}

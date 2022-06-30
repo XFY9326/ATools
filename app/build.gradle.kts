@@ -38,6 +38,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":io"))
     implementation(project(":ui"))
+    implementation(project(":compose"))
 
     implementation(project(":crash"))
     implementation(project(":livedata"))
@@ -45,9 +46,11 @@ dependencies {
     implementation(project(":datastore-preference"))
     implementation(project(":io-serialization-json"))
 
+    // AndroidX
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
 
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
 }

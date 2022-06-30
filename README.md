@@ -10,6 +10,10 @@ Optimising the programming experience on Android
 - Kotlin is recommended
 - Android SDK Version >= 23 (Android 6.0)
 
+## Attention
+
+**All APIs are not guaranteed to be stable, please select the code snippet you need to use.**
+
 ## Install
 
 Gradle
@@ -40,6 +44,7 @@ dependencyResolutionManagement {
 | [Core](core/README.md) | Base functions and application context |
 | [IO](io/README.md) | File and image related tools |
 | [UI](ui/README.md) | UI related tools |
+| [Compose](compose/README.md) | Jetpack Compose related tools |
 | [Crash](crash/README.md) | Crash logger |
 | [Coroutines](coroutines/README.md) | More Coroutines, Flow and Mutex functions |
 | [LiveData](livedata/README.md) | EventLiveData and NotifyLiveData |

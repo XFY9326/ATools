@@ -19,8 +19,4 @@ dependencies {
 
     // AndroidX
     implementation(libs.androidx.preference)
-
-    // Test
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
 }

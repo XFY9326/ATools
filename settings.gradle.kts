@@ -23,6 +23,7 @@ include(":app")
 include(":core")
 include(":io")
 include(":ui")
+include(":compose")
 
 include(":crash")
 include(":coroutines")
