@@ -41,7 +41,8 @@ dependencyResolutionManagement {
 
 | Library | Description |
 | ----- | ----- |
-| [Core](core/README.md) | Base functions and application context |
+| [Base](base/README.md) | Basic functions |
+| [Core](core/README.md) | Basic android functions and application context |
 | [IO](io/README.md) | File and image related tools |
 | [UI](ui/README.md) | UI related tools |
 | [Compose](compose/README.md) | Jetpack Compose related tools |

@@ -1,4 +1,4 @@
-# AndroidTools-Core
+# AndroidTools-Base
 
 [![](https://jitpack.io/v/io.github.xfy9326/atools.svg)](https://jitpack.io/#io.github.xfy9326/atools)
 
@@ -6,11 +6,6 @@
 
 ```kotlin
 dependencies {
-    implementation("io.github.xfy9326.atools:atools-core:<version>")
+    implementation("io.github.xfy9326.atools:atools-base:<version>")
 }
 ```
-
-## Dependencies
-
-- AndroidX Base
-- AndroidX StartUp

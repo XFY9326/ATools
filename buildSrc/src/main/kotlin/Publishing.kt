@@ -1,7 +1,6 @@
 import org.gradle.api.Project
 import org.gradle.api.publish.PublishingExtension
 import org.gradle.api.publish.maven.MavenPublication
-import org.gradle.kotlin.dsl.get
 
 private const val PublishGroup = "io.github.xfy9326.atools"
 
@@ -14,7 +13,7 @@ fun Project.publishToJitPack(artifact: String) {
                 version = currentGitCommitTag ?: "$gitCommitShortId-SNAPSHOT"
 
                 afterEvaluate {
-                    from(components["release"])
+                    from(components.findByName("release") ?: components.findByName("java"))
                 }
             }
         }

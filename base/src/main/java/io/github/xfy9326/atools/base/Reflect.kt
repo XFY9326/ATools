@@ -1,6 +1,6 @@
 @file:Suppress("unused", "UNCHECKED_CAST", "NOTHING_TO_INLINE")
 
-package io.github.xfy9326.atools.core
+package io.github.xfy9326.atools.base
 
 inline fun <T> Any.cast() = this as T
 

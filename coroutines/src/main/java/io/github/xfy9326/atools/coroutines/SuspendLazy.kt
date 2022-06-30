@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package io.github.xfy9326.atools.coroutines
 
 import kotlinx.coroutines.Dispatchers

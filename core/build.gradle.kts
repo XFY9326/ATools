@@ -11,6 +11,8 @@ android {
 publishToJitPack("atools-core")
 
 dependencies {
+    api(project(":base"))
+
     // App StartUp
     implementation(libs.androidx.startup)
 

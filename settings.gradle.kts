@@ -20,6 +20,8 @@ rootProject.name = "ATools"
 
 include(":app")
 
+include(":base")
+
 include(":core")
 include(":io")
 include(":ui")
