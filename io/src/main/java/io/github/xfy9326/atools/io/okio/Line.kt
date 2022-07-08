@@ -2,6 +2,7 @@
 
 package io.github.xfy9326.atools.io.okio
 
+import okio.BufferedSink
 import okio.BufferedSource
 import java.io.IOException
 
@@ -32,4 +33,20 @@ fun BufferedSource.lineIterator(): Iterator<String> = LineIterator(this)
 fun BufferedSource.forEachLine(block: (String) -> Unit): Unit =
     lineIterator().forEach(block)
 
+@Throws(IOException::class)
+fun BufferedSource.readAllLines(): List<String> =
+    lineIterator().asSequence().toList()
 
+@Throws(IOException::class)
+fun BufferedSink.writeLines(iterator: Iterator<String>, lineSeparator: String = System.lineSeparator()) {
+    while (iterator.hasNext()) {
+        writeUtf8(iterator.next())
+        if (iterator.hasNext()) {
+            writeUtf8(lineSeparator)
+        }
+    }
+}
+
+@Throws(IOException::class)
+fun BufferedSink.writeLines(array: Array<String>, lineSeparator: String = System.lineSeparator()) =
+    writeLines(array.iterator(), lineSeparator)
