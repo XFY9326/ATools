@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.sp
 private fun PreviewDividedLayout() {
     MaterialTheme {
         DividedLayout(
+            modifierUpStart = Modifier.fillMaxSize(),
+            modifierDownEnd = Modifier.fillMaxSize(),
             contentUpStart = {
                 Text(
                     text = "UpStart",
@@ -58,7 +60,6 @@ fun DividedLayout(
             Box(
                 modifier = Modifier
                     .weight(weightUpStart)
-                    .fillMaxSize()
                     .then(modifierUpStart),
                 content = contentUpStart
             )
@@ -66,7 +67,6 @@ fun DividedLayout(
             Box(
                 modifier = Modifier
                     .weight(weightDownEnd)
-                    .fillMaxSize()
                     .then(modifierDownEnd),
                 content = contentDownEnd
             )
@@ -76,7 +76,6 @@ fun DividedLayout(
             Box(
                 modifier = Modifier
                     .weight(weightUpStart)
-                    .fillMaxSize()
                     .then(modifierUpStart),
                 content = contentUpStart
             )
@@ -84,7 +83,6 @@ fun DividedLayout(
             Box(
                 modifier = Modifier
                     .weight(weightDownEnd)
-                    .fillMaxSize()
                     .then(modifierDownEnd),
                 content = contentDownEnd
             )
