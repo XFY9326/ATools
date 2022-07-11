@@ -49,5 +49,6 @@ dependencyResolutionManagement {
 | [Crash](crash/README.md) | Crash logger |
 | [Coroutines](coroutines/README.md) | More Coroutines, Flow and Mutex functions |
 | [LiveData](livedata/README.md) | EventLiveData and NotifyLiveData |
-| [DataStore-Preference](datastore-preference/README.md) | DataStore and Preference tools |
+| [DataStore-Preference](datastore-preference/README.md) | DataStore Preference tools |
+| [DataStore-Preference-Adapter](datastore-preference-adapter/README.md) | DataStore adapter for AndroidX Preference |
 | [IO-Serialization-Json](io-serialization-json/README.md) | Extra function for kotlinx serialization json |

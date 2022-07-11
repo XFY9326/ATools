@@ -44,6 +44,7 @@ dependencies {
     implementation(project(":livedata"))
     implementation(project(":coroutines"))
     implementation(project(":datastore-preference"))
+    implementation(project(":datastore-preference-adapter"))
     implementation(project(":io-serialization-json"))
 
     // AndroidX

@@ -5,17 +5,18 @@ plugins {
 }
 
 android {
-    namespace = "io.github.xfy9326.atools.datastore.preference"
+    namespace = "io.github.xfy9326.atools.datastore.preference.adapter"
 }
 
-publishToJitPack("atools-datastore-preference")
+publishToJitPack("atools-datastore-preference-adapter")
 
 dependencies {
-    api(project(":core"))
-
     // Kotlin Coroutines
     implementation(libs.kotlinx.coroutines.android)
 
     // DataStore
     implementation(libs.androidx.datastore.pref)
+
+    // AndroidX
+    implementation(libs.androidx.preference)
 }

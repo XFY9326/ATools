@@ -1,6 +1,6 @@
 @file:Suppress("unused", "MemberVisibilityCanBePrivate")
 
-package io.github.xfy9326.atools.datastore.preference
+package io.github.xfy9326.atools.datastore.preference.adapter
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*

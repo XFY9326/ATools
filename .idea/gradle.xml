@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/coroutines" />
             <option value="$PROJECT_DIR$/crash" />
             <option value="$PROJECT_DIR$/datastore-preference" />
+            <option value="$PROJECT_DIR$/datastore-preference-adapter" />
             <option value="$PROJECT_DIR$/io" />
             <option value="$PROJECT_DIR$/io-serialization-json" />
             <option value="$PROJECT_DIR$/livedata" />
