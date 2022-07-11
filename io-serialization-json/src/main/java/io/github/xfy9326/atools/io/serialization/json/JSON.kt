@@ -3,6 +3,8 @@
 package io.github.xfy9326.atools.io.serialization.json
 
 import android.net.Uri
+import io.github.xfy9326.atools.io.file.AssetFile
+import io.github.xfy9326.atools.io.file.RawResFile
 import io.github.xfy9326.atools.io.okio.sink
 import io.github.xfy9326.atools.io.okio.source
 import io.github.xfy9326.atools.io.okio.useBuffer
@@ -38,6 +40,14 @@ inline fun <reified T> Uri.readJSON(json: Json = Json.Default): T =
 @Throws(IOException::class, SerializationException::class)
 inline fun <reified T> Uri.writeJSON(data: T, json: Json = Json.Default): Unit =
     sink().writeJSON(data, json)
+
+@Throws(IOException::class, SerializationException::class)
+inline fun <reified T> AssetFile.readJSON(json: Json = Json.Default): T =
+    source().readJSON(json)
+
+@Throws(IOException::class, SerializationException::class)
+inline fun <reified T> RawResFile.readJSON(json: Json = Json.Default): T =
+    source().readJSON(json)
 
 @Throws(IOException::class, SerializationException::class)
 inline fun <reified T> Source.readJSON(json: Json = Json.Default): T =
