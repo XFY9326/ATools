@@ -7,11 +7,25 @@ import androidx.core.content.FileProvider
 import io.github.xfy9326.atools.core.AppContext
 import java.io.File
 
-fun filePath(vararg str: String): String? =
-    str.joinToFilePath()
+fun filePath(start: String, vararg str: String): String =
+    if (str.isEmpty()) {
+        start
+    } else if (str.size == 1) {
+        start + File.separator + str.first()
+    } else {
+        start + File.separator + str.joinToString(File.separator)
+    }
 
 fun Array<out String>.joinToFilePath(): String? =
-    if (isEmpty()) null else joinToString(File.separator)
+    if (isEmpty()) {
+        null
+    } else if (size == 1) {
+        first()
+    } else if (size == 2) {
+        this[0] + File.separator + this[1]
+    } else {
+        joinToString(File.separator)
+    }
 
 fun File.asParentOf(vararg path: String): File =
     path.joinToFilePath()?.let { File(this, it) } ?: this
