@@ -7,14 +7,11 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.CoroutineContext
-import kotlin.properties.ReadOnlyProperty
 
-fun <T> suspendLazy(coroutineContext: CoroutineContext = Dispatchers.Default, initializer: suspend () -> T) =
-    ReadOnlyProperty<Any, SuspendLazy<T>> { _, _ ->
-        SuspendLazyImpl(coroutineContext, initializer)
-    }
+fun <T> suspendLazyValue(coroutineContext: CoroutineContext = Dispatchers.Default, initializer: suspend () -> T): SuspendLazyValue<T> =
+    SuspendLazyValueImpl(coroutineContext, initializer)
 
-interface SuspendLazy<T> {
+interface SuspendLazyValue<T> {
     suspend fun value(): T
 
     suspend fun refresh(): T
@@ -22,10 +19,10 @@ interface SuspendLazy<T> {
 
 private class ValueWrapper<T>(val value: T)
 
-private class SuspendLazyImpl<T>(
+private class SuspendLazyValueImpl<T>(
     private val coroutineContext: CoroutineContext,
     private val initializer: suspend () -> T
-) : SuspendLazy<T> {
+) : SuspendLazyValue<T> {
     private val mutex = Mutex()
     private var cached: ValueWrapper<T>? = null
 
