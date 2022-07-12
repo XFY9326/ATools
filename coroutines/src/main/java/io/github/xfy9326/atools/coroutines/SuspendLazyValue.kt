@@ -2,7 +2,9 @@
 
 package io.github.xfy9326.atools.coroutines
 
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
@@ -47,6 +49,10 @@ private class SuspendLazyValueImpl<T>(
         }
 
     override suspend fun preload() {
-        value()
+        with(CoroutineScope(coroutineContext)) {
+            launch(coroutineContext) {
+                value()
+            }
+        }
     }
 }
