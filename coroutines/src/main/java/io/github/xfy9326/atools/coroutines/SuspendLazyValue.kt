@@ -15,6 +15,8 @@ interface SuspendLazyValue<T> {
     suspend fun value(): T
 
     suspend fun refresh(): T
+
+    suspend fun preload()
 }
 
 private class ValueWrapper<T>(val value: T)
@@ -43,4 +45,8 @@ private class SuspendLazyValueImpl<T>(
                 cached = ValueWrapper(it)
             }
         }
+
+    override suspend fun preload() {
+        value()
+    }
 }
