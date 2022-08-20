@@ -1,6 +1,7 @@
 package io.github.xfy9326.atools.crash
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Build
 
 private const val UNKNOWN_VERSION_NAME = "Unknown"
@@ -8,7 +9,12 @@ private const val UNKNOWN_VERSION_CODE = 0L
 
 internal fun Context.appVersion(): Pair<String, Long> {
     try {
-        packageManager.getPackageInfo(packageName, 0).let {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))
+        } else {
+            @Suppress("DEPRECATION")
+            packageManager.getPackageInfo(packageName, 0)
+        }.let {
             return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 it.versionName to it.longVersionCode
             } else {

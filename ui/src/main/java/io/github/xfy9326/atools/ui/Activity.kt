@@ -5,6 +5,8 @@ package io.github.xfy9326.atools.ui
 import android.app.Activity
 import android.graphics.Point
 import android.os.Build
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.OnBackPressedDispatcher
 
 fun Activity.getRealScreenSize(): Pair<Int, Int> =
     when {
@@ -28,3 +30,8 @@ fun Activity.getRealScreenSize(): Pair<Int, Int> =
             }
         }
     }
+
+fun OnBackPressedCallback.resume(dispatcher: OnBackPressedDispatcher) {
+    isEnabled = false
+    dispatcher.onBackPressed()
+}
