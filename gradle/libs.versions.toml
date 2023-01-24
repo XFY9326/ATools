@@ -1,13 +1,13 @@
 [versions]
 # KotlinX
 kotlinx-coroutines-android = "1.6.4"
-kotlinx-serialization-json = "1.4.0"
+kotlinx-serialization-json = "1.4.1"
 
 # AndroidX
-androidx-core = "1.8.0"
-androidx-annotation = "1.4.0"
-androidx-appcompat = "1.5.0"
-androidx-activity = "1.5.0"
+androidx-core = "1.9.0"
+androidx-annotation = "1.5.0"
+androidx-appcompat = "1.6.0"
+androidx-activity = "1.6.1"
 androidx-lifecycle = "2.5.1"
 androidx-datastore = "1.0.0"
 androidx-preference = "1.2.0"
@@ -16,10 +16,10 @@ androidx-customview-poolingcontainer = "1.0.0-rc01"
 androidx-junit = "1.1.3"
 
 # AndroidX Compose
-androidx-compose = "1.2.1"
+androidx-compose-bom = "2023.01.00"
 
 # Okio
-okio = "3.2.0"
+okio = "3.3.0"
 
 # Test
 junit = "4.13.2"
@@ -44,12 +44,13 @@ androidx-customview-poolingcontainer = { module = "androidx.customview:customvie
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
 
 # AndroidX Compose
-androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "androidx-compose" }
-androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidx-compose" }
-androidx-compose-ui-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "androidx-compose" }
-androidx-compose-ui-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-compose" }
-androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidx-compose" }
-androidx-compose-material = { module = "androidx.compose.material:material", version.ref = "androidx-compose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose-bom" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+androidx-compose-ui-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx-compose-ui-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
+androidx-compose-material = { module = "androidx.compose.material:material" }
 
 # Okio
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }

@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -12,13 +14,15 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0"
+        kotlinCompilerExtensionVersion = "1.4.0"
     }
 }
 
 publishToJitPack("atools-compose")
 
 dependencies {
+    implementation(platform(libs.androidx.compose.bom))
+
     // Compose
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.preview)

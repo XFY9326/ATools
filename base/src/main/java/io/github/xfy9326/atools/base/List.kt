@@ -3,7 +3,7 @@
 package io.github.xfy9326.atools.base
 
 fun <K, V> Collection<V>.classification(keyFactory: (V) -> K): Map<K, List<V>> {
-    if (size == 0) return emptyMap()
+    if (isEmpty()) return emptyMap()
     val map = HashMap<K, ArrayList<V>>()
     forEach {
         val key = keyFactory(it)
@@ -15,7 +15,7 @@ fun <K, V> Collection<V>.classification(keyFactory: (V) -> K): Map<K, List<V>> {
 }
 
 fun <K, V> Collection<V>.countByKey(keyFactory: (V) -> K): Map<K, Int> {
-    if (size == 0) return emptyMap()
+    if (isEmpty()) return emptyMap()
     val map = HashMap<K, Int>()
     forEach {
         val key = keyFactory(it)
