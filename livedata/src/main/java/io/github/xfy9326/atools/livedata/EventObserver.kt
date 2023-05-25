@@ -22,8 +22,8 @@ class EventObserver<T> : Observer<Event<T>> {
         this.eventObserver = eventObserver
     }
 
-    override fun onChanged(t: Event<T>) {
-        if (t.consume(tag)) t.valueWrapper?.let {
+    override fun onChanged(value: Event<T>) {
+        if (value.consume(tag)) value.valueWrapper?.let {
             eventHandler?.invoke(it.value)
             eventObserver?.onChanged(it.value)
         }

@@ -23,10 +23,10 @@ class NotifyObserver : Observer<Notify> {
         this.notifyObserver = notifyObserver
     }
 
-    override fun onChanged(t: Notify) {
-        if (t.consume(tag)) {
+    override fun onChanged(value: Notify) {
+        if (value.consume(tag)) {
             notifyHandler?.invoke()
-            notifyObserver?.onChanged(null)
+            notifyObserver?.onChanged(Unit)
         }
     }
 }

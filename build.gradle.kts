@@ -25,8 +25,9 @@ subprojects {
                 }
 
                 publishing {
-                    singleVariant("release") {
+                    multipleVariants {
                         withSourcesJar()
+                        withJavadocJar()
                     }
                 }
 
