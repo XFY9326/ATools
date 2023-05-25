@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "UnusedReceiverParameter")
 
 package io.github.xfy9326.atools.io.okio
 

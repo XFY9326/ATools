@@ -42,7 +42,6 @@ fun Bitmap.createPublicExportContentValues(
                 filePath(Environment.DIRECTORY_PICTURES, fileRelativeDir)
             )
         } else {
-            @Suppress("DEPRECATION")
             put(
                 MediaStore.Images.ImageColumns.DATA,
                 filePath(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath, fileRelativeDir, fileName)
