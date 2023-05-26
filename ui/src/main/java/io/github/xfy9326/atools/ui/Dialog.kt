@@ -12,11 +12,19 @@ fun AlertDialog.Builder.show(
     onCreate: (AlertDialog) -> Unit = {},
     onDismiss: (DialogInterface) -> Unit = {}
 ) {
-    val dialog = create()
-    onCreate(dialog)
+    create().run {
+        onCreate(this)
+        show(lifecycleOwner, onDismiss)
+    }
+}
+
+fun AlertDialog.show(
+    lifecycleOwner: LifecycleOwner,
+    onDismiss: (DialogInterface) -> Unit = {}
+) {
     val observer = object : DefaultLifecycleObserver {
         override fun onDestroy(owner: LifecycleOwner) {
-            if (dialog.isShowing) dialog.dismiss()
+            if (isShowing) dismiss()
             owner.lifecycle.removeObserver(this)
         }
     }
@@ -25,5 +33,5 @@ fun AlertDialog.Builder.show(
         lifecycleOwner.lifecycle.removeObserver(observer)
     }
     lifecycleOwner.lifecycle.addObserver(observer)
-    dialog.show()
+    show()
 }
