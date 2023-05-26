@@ -7,8 +7,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 
-fun AlertDialog.Builder.show(lifecycleOwner: LifecycleOwner, onDismiss: (DialogInterface) -> Unit = {}) {
+fun AlertDialog.Builder.show(
+    lifecycleOwner: LifecycleOwner,
+    onCreate: (AlertDialog) -> Unit = {},
+    onDismiss: (DialogInterface) -> Unit = {}
+) {
     val dialog = create()
+    onCreate(dialog)
     val observer = object : DefaultLifecycleObserver {
         override fun onDestroy(owner: LifecycleOwner) {
             if (dialog.isShowing) dialog.dismiss()
