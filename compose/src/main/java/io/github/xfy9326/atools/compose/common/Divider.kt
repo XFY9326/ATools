@@ -1,3 +1,5 @@
+@file:Suppress("ConstPropertyName")
+
 package io.github.xfy9326.atools.compose.common
 
 import androidx.compose.foundation.background
@@ -58,6 +60,7 @@ fun Divider(
                     DividerDirection.Horizontal -> it
                         .fillMaxWidth()
                         .height(targetThickness)
+
                     DividerDirection.Vertical -> it
                         .fillMaxHeight()
                         .width(targetThickness)

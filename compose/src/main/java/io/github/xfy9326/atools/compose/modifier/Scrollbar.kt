@@ -1,3 +1,5 @@
+@file:Suppress("ConstPropertyName")
+
 package io.github.xfy9326.atools.compose.modifier
 
 import androidx.compose.animation.core.animateFloatAsState
@@ -120,7 +122,8 @@ fun Modifier.verticalScrollbar(
         val animationMills = if (scrollState.isScrollInProgress) style.animationShowMills else style.animationHideMills
         val animatedAlpha by animateFloatAsState(
             targetValue = targetAlpha,
-            animationSpec = tween(durationMillis = animationMills)
+            animationSpec = tween(durationMillis = animationMills),
+            label = "verticalScrollbarAnimatedAlpha"
         )
         animatedAlpha
     }
@@ -190,7 +193,8 @@ fun Modifier.horizontalScrollbar(
         val animationMills = if (scrollState.isScrollInProgress) style.animationShowMills else style.animationHideMills
         val animatedAlpha by animateFloatAsState(
             targetValue = targetAlpha,
-            animationSpec = tween(durationMillis = animationMills)
+            animationSpec = tween(durationMillis = animationMills),
+            label = "horizontalScrollbarAnimatedAlpha"
         )
         animatedAlpha
     }

@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11">
-      <module name="ATools.app" target="17" />
-      <module name="ATools.compose" target="17" />
-      <module name="ATools.core" target="17" />
-      <module name="ATools.coroutines" target="17" />
-      <module name="ATools.crash" target="17" />
-      <module name="ATools.datastore-preference" target="17" />
-      <module name="ATools.datastore-preference-adapter" target="17" />
-      <module name="ATools.io" target="17" />
-      <module name="ATools.io-serialization-json" target="17" />
-      <module name="ATools.livedata" target="17" />
-      <module name="ATools.ui" target="17" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="17" />
   </component>
 </project>

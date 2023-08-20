@@ -1,3 +1,5 @@
+@file:Suppress("PrivatePropertyName")
+
 package io.github.xfy9326.atools.compose.common
 
 import android.content.res.Configuration
