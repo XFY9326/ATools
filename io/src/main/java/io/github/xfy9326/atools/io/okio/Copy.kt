@@ -21,7 +21,7 @@ fun Source.copyTo(sink: Sink, closeAll: Boolean = true): Long {
             }
         }
     } else {
-        sink.buffer().writeAll(buffer())
+        buffer().readAll(sink)
     }
 }
 
