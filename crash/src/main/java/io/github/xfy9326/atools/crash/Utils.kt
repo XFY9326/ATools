@@ -12,7 +12,6 @@ internal fun Context.appVersion(): Pair<String, Long> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))
         } else {
-            @Suppress("DEPRECATION")
             packageManager.getPackageInfo(packageName, 0)
         }.let {
             return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {

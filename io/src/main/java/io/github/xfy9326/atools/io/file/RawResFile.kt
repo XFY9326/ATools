@@ -1,4 +1,4 @@
-@file:Suppress("unused", "MemberVisibilityCanBePrivate")
+@file:Suppress("unused")
 
 package io.github.xfy9326.atools.io.file
 

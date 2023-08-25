@@ -7,6 +7,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Parcelable
+import androidx.core.content.IntentCompat
 import io.github.xfy9326.atools.base.castNullable
 import java.io.Serializable
 
@@ -39,28 +40,13 @@ inline fun <reified T : Serializable> Intent.getSerializableExtraCompat(name: St
 }
 
 inline fun <reified T : Parcelable> Intent.getParcelableExtraCompat(name: String?): T? {
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        getParcelableExtra(name, T::class.java)
-    } else {
-        @Suppress("DEPRECATION")
-        getParcelableExtra(name)
-    }
+    return IntentCompat.getParcelableExtra(this, name, T::class.java)
 }
 
 inline fun <reified T : Parcelable> Intent.getParcelableArrayExtraCompat(name: String?): Array<out T>? {
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        getParcelableArrayExtra(name, T::class.java)
-    } else {
-        @Suppress("DEPRECATION")
-        getParcelableArrayExtra(name).castNullable()
-    }
+    return IntentCompat.getParcelableArrayExtra(this, name, T::class.java).castNullable()
 }
 
 inline fun <reified T : Parcelable> Intent.getParcelableArrayListExtraCompat(name: String?): ArrayList<T>? {
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        getParcelableArrayListExtra(name, T::class.java)
-    } else {
-        @Suppress("DEPRECATION")
-        getParcelableArrayListExtra(name)
-    }
+    return IntentCompat.getParcelableArrayListExtra(this, name, T::class.java)
 }

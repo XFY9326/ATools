@@ -1,4 +1,4 @@
-@file:Suppress("MemberVisibilityCanBePrivate", "unused")
+@file:Suppress("unused")
 
 package io.github.xfy9326.atools.crash
 

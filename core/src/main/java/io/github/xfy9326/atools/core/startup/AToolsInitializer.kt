@@ -5,7 +5,6 @@ import androidx.annotation.Keep
 import androidx.startup.Initializer
 
 @Keep
-@Suppress("unused")
 class AToolsInitializer : Initializer<Unit> {
     companion object {
         private var startUpApplicationContext: Context? = null

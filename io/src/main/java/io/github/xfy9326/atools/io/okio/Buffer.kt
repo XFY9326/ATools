@@ -1,9 +1,10 @@
-@file:Suppress("unused")
-
 package io.github.xfy9326.atools.io.okio
 
-import okio.*
-import kotlin.io.use
+import okio.BufferedSink
+import okio.BufferedSource
+import okio.Sink
+import okio.Source
+import okio.buffer
 
 inline fun <T> Source.useBuffer(block: BufferedSource.() -> T) = buffer().use(block)
 
