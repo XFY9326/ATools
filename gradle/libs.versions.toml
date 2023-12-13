@@ -1,13 +1,13 @@
 [versions]
 # KotlinX
 kotlinx-coroutines-android = "1.7.3"
-kotlinx-serialization-json = "1.6.0"
+kotlinx-serialization-json = "1.6.1"
 
 # AndroidX
 androidx-core = "1.12.0"
 androidx-annotation = "1.7.0"
 androidx-appcompat = "1.6.1"
-androidx-activity = "1.8.0"
+androidx-activity = "1.8.1"
 androidx-lifecycle = "2.6.2"
 androidx-datastore = "1.0.0"
 androidx-preference = "1.2.1"
@@ -16,8 +16,7 @@ androidx-customview-poolingcontainer = "1.0.0"
 androidx-junit = "1.1.5"
 
 # AndroidX Compose
-androidx-compose-compiler = "1.5.3"
-androidx-compose-bom = "2023.10.00"
+androidx-compose-bom = "2023.10.01"
 
 # Okio
 okio = "3.6.0"
@@ -39,7 +38,7 @@ androidx-startup = { module = "androidx.startup:startup-runtime", version.ref = 
 androidx-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "androidx-lifecycle" }
-androidx-datastore-pref = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
 androidx-preference = { module = "androidx.preference:preference-ktx", version.ref = "androidx-preference" }
 androidx-customview-poolingcontainer = { module = "androidx.customview:customview-poolingcontainer", version.ref = "androidx-customview-poolingcontainer" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }

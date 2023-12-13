@@ -14,6 +14,6 @@ dependencies {
 
 ## Dependencies
 
-- ATools Core
+- [ATools Core](../core/README.md)
 - KotlinX Coroutines
 - AndroidX DataStore Preference
