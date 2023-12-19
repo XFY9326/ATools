@@ -6,7 +6,9 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import io.github.xfy9326.atools.datastore.preference.ExtendedDataStore
+import io.github.xfy9326.atools.datastore.preference.key.ReadWriteDefaultKey
 import io.github.xfy9326.atools.datastore.preference.key.ReadWriteKey
+import io.github.xfy9326.atools.datastore.preference.key.stateDefaultKey
 import io.github.xfy9326.atools.datastore.preference.key.stateHasKey
 import io.github.xfy9326.atools.datastore.preference.key.stateKey
 import kotlinx.coroutines.flow.StateFlow
@@ -26,5 +28,11 @@ fun <D : ExtendedDataStore> ViewModel.stateHasKey(dataStore: D, key: Preferences
 fun <D : ExtendedDataStore, T : Any> ViewModel.stateDataStoreKey(dataStore: D, key: ReadWriteKey<T>): StateFlow<T?> =
     dataStore.stateKey(key, viewModelScope)
 
+fun <T : Any> ViewModel.stateDataStoreKey(key: ReadWriteDefaultKey<*, T>): StateFlow<T> =
+    key.dataStore.stateDefaultKey(key, viewModelScope)
+
 fun <D : ExtendedDataStore> ViewModel.stateHasKey(dataStore: D, key: ReadWriteKey<*>): StateFlow<Boolean> =
     dataStore.stateHasKey(key, viewModelScope)
+
+fun ViewModel.stateHasKey(key: ReadWriteDefaultKey<*, *>): StateFlow<Boolean> =
+    key.dataStore.stateHasKey(key, viewModelScope)
